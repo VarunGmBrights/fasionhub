@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FAF8F5;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    background-color: #0f0f0f;
+    color: #FAF8F5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  /* Skeleton loader */
+  .skeleton {
+    background: linear-gradient(90deg, #f0ede8 25%, #e8e4dd 50%, #f0ede8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .dark .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+  }
+
+  /* Gold button */
+  /* .btn-gold {
+    @apply bg-gold text-white font-body font-medium tracking-widest uppercase text-xs px-8 py-3.5 transition-all duration-300 hover:bg-gold-dark hover:shadow-gold active:scale-95;
+  } */
+
+  /* Outline button */
+  .btn-outline {
+    @apply border border-charcoal text-charcoal font-body font-medium tracking-widest uppercase text-xs px-8 py-3.5 transition-all duration-300 hover:bg-charcoal hover:text-white active:scale-95;
+  }
+
+  /* Product card */
+  /* .product-card {
+    @apply bg-white shadow-card hover:shadow-card-hover transition-all duration-500 overflow-hidden group cursor-pointer;
+  } */
+
+  /* Section label */
+  .section-label {
+    @apply text-gold uppercase tracking-[0.3em] text-xs font-body font-medium;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-light text-charcoal leading-tight;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full border border-cream-300 bg-cream-100 px-4 py-3 text-sm font-body text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-gold transition-colors duration-200;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-sm font-body font-medium tracking-wide text-charcoal/80 hover:text-gold transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  /* Badge */
+  .badge {
+    @apply text-[10px] font-body font-semibold uppercase tracking-widest px-2 py-0.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f0ede8;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #BFA882;
+    border-radius: 2px;
+  }
+}
+
+/* Dark mode overrides */
+.dark .product-card {
+  background-color: #1e1e1e;
+}
+
+.dark .input-field {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #FAF8F5;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
